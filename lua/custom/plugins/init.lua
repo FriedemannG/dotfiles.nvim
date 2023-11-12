@@ -12,7 +12,13 @@ return {
     {
 	'javiorfo/nvim-soil',
 	dependencies = {'javiorfo/nvim-nyctovim'}
-    }
+    },
+    {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
 
 
 }

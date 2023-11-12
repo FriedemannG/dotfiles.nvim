@@ -160,6 +160,9 @@ require('lazy').setup({
       vim.cmd.colorscheme 'onedark'
     end,
   },
+    {
+	dir = '/Users/friedemann/code/plugins/klog.nvim'
+    },
 
   {
     -- Set lualine as statusline
@@ -167,11 +170,22 @@ require('lazy').setup({
     -- See `:help lualine.txt`
     opts = {
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'onedark',
         component_separators = '|',
         section_separators = '',
+        refresh = {
+          statusline = 6000,
+        }
       },
+   sections = {
+       lualine_a = {'mode'},
+       lualine_b = {'branch', 'diff', 'diagnostics'},
+       lualine_c = {'filename'},
+       lualine_x = {"klog",'encoding', 'fileformat', 'filetype'},
+       lualine_y = {'progress'},
+       lualine_z = {'location'}
+     },
     },
   },
 
@@ -621,5 +635,6 @@ cmp.setup {
   },
 }
 require("clangd_extensions").setup {}
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
